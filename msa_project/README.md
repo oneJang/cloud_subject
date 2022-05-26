@@ -2,6 +2,7 @@
 
 #1. redis에 투표한 내용을 전달받아 저장하는 역할을 하는 deployment를 생성한다.
 <redis.deployment.yaml>
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -31,8 +32,10 @@ spec:
       volumes:
       - name: redis-data
         emptyDir: {}
+```
 #2. redis-deployment에 clusterIP로 서비스를 붙여서 클러스터 내부에 노출시킨다.
 <redis-service.yaml>
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -48,7 +51,9 @@ spec:
     targetPort: 6379
   selector:
     app: redis
+```
 #3. 투표화면과 투표결과를 전달하는 프로그램을 deployment로 생성한다.
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -72,7 +77,9 @@ spec:
         ports:
         - containerPort: 80
           name: result
+  ```
 #4. vote-deployment를 클러스터 외부에 nodePort서비스로 노출시킨다.
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -89,7 +96,9 @@ spec:
     nodePort: 31000
   selector:
     app: vote
+```
 #5. db에 투표 결과를 저장하는 deployment를 생성한다.
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -126,7 +135,9 @@ spec:
       volumes:
       - name: db-data
         emptyDir: {}
+```
 #6. db-deployment를 clusterIP서비스로 클러스터 내부에 노출시킨다.
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -142,7 +153,9 @@ spec:
     targetPort: 5432
   selector:
     app: db
+```
 #7. 투표결과를 보여주는 화면을 보여주는 기능을 deployment로 생성한다.
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -166,7 +179,9 @@ spec:
         ports:
         - containerPort: 80
           name: result
+```
 #7. nodePort서비스로 result-deployment를 클러스터 외부에 노출시킨다.
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -183,7 +198,9 @@ spec:
     nodePort: 31001
   selector:
     app: result
+````
 #8. redis-deployment에 저장된 투표결과를 db-deployment로 전달하는 기능을 deployment로 생성한다.
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -204,4 +221,4 @@ spec:
       containers:
       - image: dockersamples/examplevotingapp_worker
         name: worker
-
+```
