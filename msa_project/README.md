@@ -1,8 +1,8 @@
 #고양이와 강아지 중 하나를 투표하여 투표율을 보여주는 프로그램을 msa로 구성해보았다.
 
 #1. redis에 투표한 내용을 전달받아 저장하는 역할을 하는 deployment를 생성한다.
-<redis.deployment.yaml>
 ```
+#redis-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -34,8 +34,9 @@ spec:
         emptyDir: {}
 ```
 #2. redis-deployment에 clusterIP로 서비스를 붙여서 클러스터 내부에 노출시킨다.
-<redis-service.yaml>
+
 ```
+#redis-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -54,6 +55,7 @@ spec:
 ```
 #3. 투표화면과 투표결과를 전달하는 프로그램을 deployment로 생성한다.
 ```
+#vote-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -80,6 +82,7 @@ spec:
   ```
 #4. vote-deployment를 클러스터 외부에 nodePort서비스로 노출시킨다.
 ```
+#vote-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -99,6 +102,7 @@ spec:
 ```
 #5. db에 투표 결과를 저장하는 deployment를 생성한다.
 ```
+#db-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -138,6 +142,7 @@ spec:
 ```
 #6. db-deployment를 clusterIP서비스로 클러스터 내부에 노출시킨다.
 ```
+#db-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -156,6 +161,7 @@ spec:
 ```
 #7. 투표결과를 보여주는 화면을 보여주는 기능을 deployment로 생성한다.
 ```
+#result-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -182,6 +188,7 @@ spec:
 ```
 #7. nodePort서비스로 result-deployment를 클러스터 외부에 노출시킨다.
 ```
+#result-service.yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -201,6 +208,7 @@ spec:
 ````
 #8. redis-deployment에 저장된 투표결과를 db-deployment로 전달하는 기능을 deployment로 생성한다.
 ```
+#worker-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
