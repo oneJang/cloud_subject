@@ -1,6 +1,6 @@
 #고양이와 강아지 중 하나를 투표하여 투표율을 보여주는 프로그램을 msa로 구성해보았다.
 <img width="960" alt="투표화면" src="https://user-images.githubusercontent.com/88422822/170530399-56764b28-5f86-434a-95d9-ce6a5c649cc9.png">
-<img width="947" alt="투표결과 화면" src="https://user-images.githubusercontent.com/88422822/170530407-0841fc2f-ad09-44a0-88d9-255e8ed95eae.png">
+<img width="947" alt="투표결과 화면" src="https://user-images.githubusercontent.com/88422822/170530407-0841fc2f-ad09-44a0-88d9-255e8ed95eae.png"><br>
 *프로그램 자체는 본인이 코딩한것이 아니라 완성되어있는 것을 컨테이너화 하여 이미지로 사용한 것이다.
 
 #1. redis에 투표한 내용을 전달받아 저장하는 역할을 하는 deployment를 생성한다.
