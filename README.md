@@ -9,30 +9,30 @@
 2-2) QEMU: 하드웨어를 가상화 해주는 하이퍼바이저중 하나
 3. Livbert: 하이퍼바이저들을 관리하는 오픈소스 라이브러리
 
-VM vs 컨테이너
-VM: 하이퍼바이저로 하드웨어를 가상화하여 만든 공간
-컨테이너: 컨테이너 엔진으로 os를 가상화하여 만든 별도 공간
-VM은 공간 하나당 guest os를 설치해야하기 때문에 무거움
-반면 컨테이너는 os를 공유하기 때문에 응용프로그램과 라이브러리만 있으면 됨 -> 가벼움
+VM vs 컨테이너<br>
+VM: 하이퍼바이저로 하드웨어를 가상화하여 만든 공간<br>
+컨테이너: 컨테이너 엔진으로 os를 가상화하여 만든 별도 공간<br>
+VM은 공간 하나당 guest os를 설치해야하기 때문에 무거움<br>
+반면 컨테이너는 os를 공유하기 때문에 응용프로그램과 라이브러리만 있으면 됨 -> 가벼움<br>
 
-수많은 서버가 모여 있는 센터: 데이터 센터
-수많은 가상머신과 컨테이너가 모여있는 센터: 클라우드
-서버들 속의 하이퍼바이저, 컨테이너 엔진이 만드는 가상머신과 컨테이너를 운영, 관리하는 기술을 공부하는 것 -> 클라우드 기술을 학습하는 것
+수많은 서버가 모여 있는 센터: 데이터 센터<br>
+수많은 가상머신과 컨테이너가 모여있는 센터: 클라우드<br>
+서버들 속의 하이퍼바이저, 컨테이너 엔진이 만드는 가상머신과 컨테이너를 운영, 관리하는 기술을 공부하는 것 -> 클라우드 기술을 학습하는 것<br>
 
-http(hypertext transfer protocol): 웹 정보를 주고받는데 사용되는 프로토콜
-주요특성: stateless -> 서버는 이전에 클라이언트가 request했던 것에 대한 정보를 기억하지 않는다
-http 메세지: request, reponse
-request: ex) GET, POST, PUT, DELETE ...
-reponse: ex) 200 ok
+http(hypertext transfer protocol): 웹 정보를 주고받는데 사용되는 프로토콜<br>
+주요특성: stateless -> 서버는 이전에 클라이언트가 request했던 것에 대한 정보를 기억하지 않음<br>
+http 메세지: request, reponse<br>
+request: ex) GET, POST, PUT, DELETE ...<br>
+reponse: ex) 200 ok<br>
 
-api: 서버와 클라이언트 사이의 인터페이스
-ex) 음식점
-클라이언트: 주문하는 사람
-api: 직원
-서버: 주방장
+api: 서버와 클라이언트 사이의 인터페이스<br>
+ex) 음식점<br>
+클라이언트: 주문하는 사람<br>
+api: 직원<br>
+서버: 주방장<br>
 
-restful api: http의 방식으로 api를 사용하는 것
-각 자원을 주고받을 때 URI로 식별, http의 모든 특성을 갖추고 있음
+restful api: http의 방식으로 api를 사용하는 것<br>
+각 자원을 주고받을 때 URI로 식별, http의 모든 특성을 갖추고 있음<br>
 
 openstack: restful api를 이용한 virtual machine 관리용 클라우드 운영 시스템, 수많은 오픈소스 프로젝트들이 모여 구성됨
 1) nova
